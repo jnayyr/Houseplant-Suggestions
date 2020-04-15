@@ -32,8 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.trkTemp = new System.Windows.Forms.TrackBar();
             this.lblTemp = new System.Windows.Forms.Label();
-            this.btnSuggest = new System.Windows.Forms.Button();
             this.lblSuggestion = new System.Windows.Forms.Label();
+            this.lnkHousePlantInfo = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.trkTemp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,6 +46,7 @@
             this.chkSouthFacing.TabIndex = 0;
             this.chkSouthFacing.Text = "Do you have a South-facing window?";
             this.chkSouthFacing.UseVisualStyleBackColor = true;
+            this.chkSouthFacing.CheckedChanged += new System.EventHandler(this.HouseConditionsChanged);
             // 
             // textBox1
             // 
@@ -77,25 +78,26 @@
             this.lblTemp.TabIndex = 3;
             this.lblTemp.Text = "50 F";
             // 
-            // btnSuggest
-            // 
-            this.btnSuggest.Location = new System.Drawing.Point(53, 258);
-            this.btnSuggest.Name = "btnSuggest";
-            this.btnSuggest.Size = new System.Drawing.Size(117, 41);
-            this.btnSuggest.TabIndex = 4;
-            this.btnSuggest.Text = "Suggest!";
-            this.btnSuggest.UseVisualStyleBackColor = true;
-            this.btnSuggest.Click += new System.EventHandler(this.btnSuggest_Click);
-            // 
             // lblSuggestion
             // 
             this.lblSuggestion.AutoSize = true;
             this.lblSuggestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSuggestion.Location = new System.Drawing.Point(193, 265);
+            this.lblSuggestion.Location = new System.Drawing.Point(163, 255);
             this.lblSuggestion.Name = "lblSuggestion";
             this.lblSuggestion.Size = new System.Drawing.Size(242, 25);
             this.lblSuggestion.TabIndex = 5;
             this.lblSuggestion.Text = "Plant suggestion here";
+            // 
+            // lnkHousePlantInfo
+            // 
+            this.lnkHousePlantInfo.AutoSize = true;
+            this.lnkHousePlantInfo.Location = new System.Drawing.Point(347, 344);
+            this.lnkHousePlantInfo.Name = "lnkHousePlantInfo";
+            this.lnkHousePlantInfo.Size = new System.Drawing.Size(200, 25);
+            this.lnkHousePlantInfo.TabIndex = 6;
+            this.lnkHousePlantInfo.TabStop = true;
+            this.lnkHousePlantInfo.Text = "houseplant411.com";
+            this.lnkHousePlantInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkHousePlantInfo_LinkClicked);
             // 
             // Form1
             // 
@@ -103,8 +105,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(606, 378);
+            this.Controls.Add(this.lnkHousePlantInfo);
             this.Controls.Add(this.lblSuggestion);
-            this.Controls.Add(this.btnSuggest);
             this.Controls.Add(this.lblTemp);
             this.Controls.Add(this.trkTemp);
             this.Controls.Add(this.textBox1);
@@ -123,8 +125,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TrackBar trkTemp;
         private System.Windows.Forms.Label lblTemp;
-        private System.Windows.Forms.Button btnSuggest;
         private System.Windows.Forms.Label lblSuggestion;
+        private System.Windows.Forms.LinkLabel lnkHousePlantInfo;
     }
 }
 

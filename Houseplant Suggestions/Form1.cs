@@ -15,6 +15,7 @@ namespace Houseplant_Suggestions
         public Form1()
         {
             InitializeComponent();
+            this.trkTemp.Scroll += new System.EventHandler(this.HouseConditionsChanged);
         }
 
         private void trkTemp_Scroll(object sender, EventArgs e)
@@ -22,12 +23,12 @@ namespace Houseplant_Suggestions
             lblTemp.Text = trkTemp.Value.ToString("# F");
         }
 
-        private void btnSuggest_Click(object sender, EventArgs e)
+        private void HouseConditionsChanged(object sender, EventArgs e)
         {
             int homeTemp = trkTemp.Value;
             bool southFacingWindowAvailable = chkSouthFacing.Checked;
 
-            // Call's method, use return value
+            // Call's method, use return value now
             string suggestedPlant = GenerateSuggestion(homeTemp, southFacingWindowAvailable);
 
             lblSuggestion.Text = suggestedPlant;
@@ -57,6 +58,21 @@ namespace Houseplant_Suggestions
                     return "Ivy"; // cool with low light
                 }
             }
+        }
+
+        private void lnkHousePlantInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ShowWebPage(lblSuggestion.Text);
+        }
+
+        private void ShowWebPage(string plantName) // new method
+        {
+            string url = "https://www.houseplant411.com/";
+
+            // link to specific plant in the form "https://www.houseplant411.com/houseplant?hpq=ivy
+            url = url + "houseplant?hpq=" + plantName;
+
+            System.Diagnostics.Process.Start(url); // Launch web browser, navigate to url
         }
     }
 }
